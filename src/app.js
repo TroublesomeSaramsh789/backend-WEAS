@@ -4,6 +4,8 @@ import cors from "cors";
 import helmet from "helmet";
 
 //Routes
+import userRoute from "./routers/user.js";
+import locationRoute from "./routers/location.js";
 
 const app = express();
 const port = 3500;
@@ -14,6 +16,8 @@ app.use(cors());
 app.use(helmet());
 
 //Routes
+app.use("/add-user", userRoute);
+app.use("/provide-location", locationRoute);
 
 app.get("/", (req, res) => {
   res.send({ hello: "world" });
